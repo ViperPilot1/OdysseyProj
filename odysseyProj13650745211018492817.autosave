@@ -1,0 +1,13 @@
+// test
+void setup(){
+    size(1000,800);
+}
+
+void draw(){
+    background(255); 
+}
+
+void menu(){
+    background(200); 
+    text("Menu",width/2,200);
+}
