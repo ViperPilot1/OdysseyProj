@@ -13,7 +13,7 @@ PImage playerSprite;
 //======================
 
 void loadResources(){
-    playerSprite = loadImage("./resources/img/player.png");
+    playerSprite = loadImage("./resources/img/playerLeft.png");
 }
 
 void setup(){
