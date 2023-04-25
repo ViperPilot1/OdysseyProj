@@ -13,7 +13,7 @@ PImage playerSprite;
 //======================
 
 void loadResources(){
-    playerSprite = loadImage("./resources/img/player.png");
+    playerSprite = loadImage("./resources/img/player.jpeg");
 }
 
 void setup(){
@@ -35,6 +35,8 @@ void draw(){
     }
 }
 void keyPressed(){
+    fill(100);
+    rect(200,200,200,200);
  if (key == 'm'){
             menu = true; 
             inGame = false;
@@ -42,35 +44,55 @@ void keyPressed(){
         if (( key == 'w') || ( key == 'W')){
         up = true; 
         }
-        
+        else{
+        up = false; 
+        }
         if (( key == 's') || ( key == 'S')){
         bottom = true; 
         }
-       
+        else {
+        bottom = false;
+        }
         if (( key == 'a') || ( key == 'A')){
        left = true; 
         }
-       
+        else {
+        left = false;
+        }
         if ((key == 'd') || (key == 'D')){
         right = true; 
         }
-        
+        else {
+        right = false;
+        }
 }
 void keyReleased(){
+     if (key == 'm'){
+            menu = true; 
+            inGame = false;
+        }
         if (( key == 'w') || ( key == 'W')){
+        up = true; 
+        }
+        else{
         up = false; 
         }
-       
         if (( key == 's') || ( key == 'S')){
-        bottom = false; 
+        bottom = true; 
         }
-       
+        else {
+        bottom = false;
+        }
         if (( key == 'a') || ( key == 'A')){
-       left = false; 
+       left = true; 
         }
-       
+        else {
+        left = false;
+        }
         if ((key == 'd') || (key == 'D')){
-        right = false; 
+        right = true; 
         }
-        
+        else {
+        right = false;
+        }
 }

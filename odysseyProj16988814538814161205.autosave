@@ -13,7 +13,7 @@ PImage playerSprite;
 //======================
 
 void loadResources(){
-    playerSprite = loadImage("./resources/img/player.png");
+    playerSprite = loadImage("./resources/img/player.jpeg");
 }
 
 void setup(){
@@ -42,35 +42,25 @@ void keyPressed(){
         if (( key == 'w') || ( key == 'W')){
         up = true; 
         }
-        
+        else{
+        up = false; 
+        }
         if (( key == 's') || ( key == 'S')){
         bottom = true; 
         }
-       
+        else {
+        bottom = false;
+        }
         if (( key == 'a') || ( key == 'A')){
        left = true; 
         }
-       
+        else {
+        left = false;
+        }
         if ((key == 'd') || (key == 'D')){
         right = true; 
         }
-        
-}
-void keyReleased(){
-        if (( key == 'w') || ( key == 'W')){
-        up = false; 
+        else {
+        right = false;
         }
-       
-        if (( key == 's') || ( key == 'S')){
-        bottom = false; 
-        }
-       
-        if (( key == 'a') || ( key == 'A')){
-       left = false; 
-        }
-       
-        if ((key == 'd') || (key == 'D')){
-        right = false; 
-        }
-        
 }

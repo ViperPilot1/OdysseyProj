@@ -1,0 +1,25 @@
+boolean menu = true; 
+boolean resume = false; 
+Render render = new Render(); 
+Player player = new Player("a");
+
+// Define resources here
+PImage playerSprite;
+//======================
+
+void loadResources(){
+    playerSprite = loadImage("");
+}
+
+void setup(){
+    size(1000,800); 
+    // loadimage() will all be here
+    loadResources();
+}
+
+void draw(){
+    background(255); 
+    if (menu){
+        render.menu(); 
+    }
+}

@@ -1,25 +1,36 @@
-class Human{
+class Player{
     private String name;
     private int hp;
     private int attackValue;
     private int protection;
     private int speed;
+    private int playerX;
+    private int playerY;
+
+   
+    public PImage targetPlayerSprite;
 
     // constructors
-    public Human(String name, int hp, int attackValue, int protection, int speed){
+    public Player(String name, int hp, int attackValue, int protection, int speed, int playerX, int playerY, PImage targetPlayerSprite){
         this.name = name;
         this.hp = hp; 
         this.attackValue = attackValue;
         this.protection = protection;
         this.speed = speed;
+        this.targetPlayerSprite = targetPlayerSprite;
+        this.playerX = playerX;
+        this.playerY = playerY;
     }
 
-    public Human(String name){
+    public Player(String name, PImage targetPlayerSprite){
         this.name = name;
         this.hp = 100; 
         this.attackValue = 5;
         this.protection = 100;
         this.speed = 5;
+        this.targetPlayerSprite = targetPlayerSprite;
+        this.playerX = width / 2;
+        this.playerY = height / 2;
     }
 
     // Getters and Setters
@@ -64,7 +75,18 @@ class Human{
     }
 
     // methods
+
+
+
     public void handleMoving(){
         // TODO: Finishing Moving Function
+        if (up) this.playerY -= this.speed; 
+        if (bottom) this.playerY += this.speed; 
+        if (left) this.playerX -= this.speed; 
+        if (right) this.playerX += this.speed; 
+        }
+
+    public void handleRender(){
+        image(this.targetPlayerSprite, this.playerX, this.playerY);
     }
 }

@@ -1,4 +1,4 @@
-class Human{
+class Player{
     private String name;
     private int hp;
     private int attackValue;
@@ -6,7 +6,7 @@ class Human{
     private int speed;
 
     // constructors
-    public Human(String name, int hp, int attackValue, int protection, int speed){
+    public Player(String name, int hp, int attackValue, int protection, int speed){
         this.name = name;
         this.hp = hp; 
         this.attackValue = attackValue;
@@ -14,7 +14,7 @@ class Human{
         this.speed = speed;
     }
 
-    public Human(String name){
+    public Player(String name){
         this.name = name;
         this.hp = 100; 
         this.attackValue = 5;
@@ -47,4 +47,24 @@ class Human{
         this.name = name;
     }
 
-    public void set{
+    public void setHp(int hp){
+        this.hp = hp;
+    }
+
+    public void setAttackValue(int attackValue){
+        this.attackValue = attackValue;
+    }
+
+    public void setProtection(int protection){
+        this.protection = protection;
+    }
+
+    public void setSpeed(int speed){
+        this.speed = speed;
+    }
+
+    // methods
+    public void handleMoving(){
+        // TODO: Finishing Moving Function
+    }
+}

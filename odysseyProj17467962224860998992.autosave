@@ -1,10 +1,6 @@
 boolean menu = true; 
 boolean resume = false;
 boolean inGame = false; 
- boolean up = false;
-    boolean bottom = false;
-    boolean left = false;
-     boolean right = false;
 Render render = new Render(); 
 Player player;
 
@@ -13,7 +9,7 @@ PImage playerSprite;
 //======================
 
 void loadResources(){
-    playerSprite = loadImage("./resources/img/player.png");
+    playerSprite = loadImage("./resources/img/player.jpeg");
 }
 
 void setup(){
@@ -42,35 +38,25 @@ void keyPressed(){
         if (( key == 'w') || ( key == 'W')){
         up = true; 
         }
-        
-        if (( key == 's') || ( key == 'S')){
-        bottom = true; 
-        }
-       
-        if (( key == 'a') || ( key == 'A')){
-       left = true; 
-        }
-       
-        if ((key == 'd') || (key == 'D')){
-        right = true; 
-        }
-        
-}
-void keyReleased(){
-        if (( key == 'w') || ( key == 'W')){
+        else{
         up = false; 
         }
-       
         if (( key == 's') || ( key == 'S')){
-        bottom = false; 
+        this.playerY += this.speed; 
         }
-       
+        else {
+        bottom = false;
+        }
         if (( key == 'a') || ( key == 'A')){
-       left = false; 
+        this.playerX -= this.speed; 
         }
-       
+        else {
+        left = false;
+        }
         if ((key == 'd') || (key == 'D')){
-        right = false; 
+        this.playerX += this.speed; 
         }
-        
+        else {
+        right = false;
+        }
 }
