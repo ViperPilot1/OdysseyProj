@@ -1,34 +1,36 @@
-class Player{
+class Human{
     private String name;
     private int hp;
     private int attackValue;
     private int protection;
     private int speed;
-    private int playerX;
-    private int playerY;
-    private PImage targetPlayerSprite;
+    public float x;
+    public float y;
+    public PVector position;
+    public PImage sprite;
 
     // constructors
-    public Player(String name, int hp, int attackValue, int protection, int speed, int playerX, int playerY, PImage targetPlayerSprite){
+    public Human(String name, int hp, int attackValue, int protection, int speed, float x, float y, PImage sprite){
         this.name = name;
         this.hp = hp; 
         this.attackValue = attackValue;
         this.protection = protection;
         this.speed = speed;
-        this.targetPlayerSprite = targetPlayerSprite;
-        this.playerX = playerX;
-        this.playerY = playerY;
+        this.x = x;
+        this.y = y;
+        this.sprite = sprite;
+       // this.position = new PVector(this.x, this.y)
     }
 
-    public Player(String name, PImage targetPlayerSprite){
+    public Human(String name, PImage sprite){
         this.name = name;
         this.hp = 100; 
         this.attackValue = 5;
         this.protection = 100;
         this.speed = 5;
-        this.targetPlayerSprite = targetPlayerSprite;
-        this.playerX = width / 2;
-        this.playerY = height / 2;
+        this.x = 0;
+        this.y = 0;
+        this.sprite = sprite;
     }
 
     // Getters and Setters
@@ -75,10 +77,9 @@ class Player{
     // methods
     public void handleMoving(){
         // TODO: Finishing Moving Function
-
     }
 
-    public void handleRender(){
-        image(this.targetPlayerSprite, this.playerX, this.playerY);
+    public void handleRending(){
+        image(this.sprite, this.x, this.y); 
     }
 }

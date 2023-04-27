@@ -35,21 +35,11 @@ class Render{
         background(0);
     }
     public void odyseussAnimation(){
-        if (key == 'a' || key == 'A'){
-            if (player.name == "odyseuss"){
-                player.targetPlayerSprite = odyseussLeft;
-            }
-            else{
-                player.targetPlayerSprite = pen;
-            }
+        if (key == 'a'){
+            player.targetPlayerSprite = odyseussLeft;
         }
-         if (key == 'd' || key == 'D'){
-            if (player.name == "odyseuss"){
-                player.targetPlayerSprite = odyseussRight;
-            }
-            else{
-                player.targetPlayerSprite = pen;
-            } 
+         if (key == 'd'){
+            player.targetPlayerSprite = odyseussRight; 
         }
     }
 }
