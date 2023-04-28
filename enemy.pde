@@ -16,12 +16,12 @@ class Enemy{
     }
 
     // Enemy AI Class
-    public void AutoControl(float playerX, float playerY, Player targetPlayer){
+ /*   public void AutoControl(float playerX, float playerY, Player targetPlayer){
         // Get distance
         float currentDistance = dist(this.x, this.y, targetPlayer.x, targetPlayer.y);
         float verticalDistance = this.y - targetPlayer.y;
         float horizontalDistance = this.x - targetPlayer.x;
         // Calculate Speed
         
-    }
+    }*/
 }

@@ -19,7 +19,7 @@ class Human{
         this.x = x;
         this.y = y;
         this.sprite = sprite;
-        this.position = new PVector(this.x, this.y)
+    //    this.position = new PVector(this.x, this.y)
     }
 
     public Human(String name, PImage sprite){
@@ -31,7 +31,7 @@ class Human{
         this.x = 0;
         this.y = 0;
         this.sprite = sprite;
-        this.position = new PVector(this.x, this.y)
+     //   this.position = new PVector(this.x, this.y)
     }
 
     // Getters and Setters

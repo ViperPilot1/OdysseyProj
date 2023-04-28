@@ -21,7 +21,7 @@ void loadResources(){
     odyseussLeft = loadImage("./resources/img/playerLeft.png");
     odyseussRight = loadImage("./resources/img/playerRight.png");
     pen = loadImage("./resources/img/download.jpeg");
-    underworld = loadImage("./resources/img/underworld.jpeg"); 
+    underworld = loadImage("./resources/img/Underworld.jpeg"); 
 }
 
 void setup(){
@@ -33,8 +33,7 @@ void setup(){
     
 }
 
-void draw(){
-    image(underworld, 0,0,width,height); 
+void draw(){ 
     if (menu){
         render.menu(); 
     }

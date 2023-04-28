@@ -1,7 +1,7 @@
 class Render{
     public void menu(){
         //diplay
-        background(200); 
+       image(underworld, 0,0,width,height);
         fill(0);
         rect(width/1.5,550,250,100); 
         rect(width/2.5,550,250,100); 
@@ -32,7 +32,7 @@ class Render{
         //if ()
     }
     public void inGame(){
-        background(0);
+       image(underworld, 0,0,width,height);
     }
     public void odyseussAnimation(){
         if (key == 'a' || key == 'A'){
