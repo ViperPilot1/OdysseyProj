@@ -17,8 +17,6 @@ PImage odyseuss;
 PImage pen; 
 PImage underworld; 
 PImage enemy; 
-PImage odyseussFightAnimationL; 
-PImage odyseussFightAnimationR; 
 //======================
 
 void loadResources(){
@@ -27,8 +25,6 @@ void loadResources(){
     pen = loadImage("./resources/img/download.jpeg");
     underworld = loadImage("./resources/img/Underworld.jpeg"); 
     enemy = loadImage("./resources/img/enemy.png"); 
-    odyseussFightAnimationL = loadImage("./resources/img/OdysseusSwordLeft.png"); 
-     odyseussFightAnimationR = loadImage("./resources/img/OdysseusSwordRight.png"); 
 }
 
 void setup(){
@@ -50,7 +46,6 @@ void draw(){
         player.handleRender();
         render.odyseussAnimation(); 
         enmy.handleRender(); 
-        enmy.EnemyAI(); 
     }
 }
 void keyPressed(){

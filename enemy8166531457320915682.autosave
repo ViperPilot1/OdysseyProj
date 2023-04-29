@@ -2,7 +2,6 @@ class Enemy{
     private int health;
     private int attack;
     private int speed;
-    private float easing = 0.05; 
     public float x;
     public float y;
     public PImage sprite;
@@ -15,7 +14,7 @@ class Enemy{
         this.x = x;
         this.y = y;
     }
-    public Enemy(PImage sprite){
+public Enemy(PImage sprite){
    this.sprite = sprite;
 }
 
@@ -28,17 +27,7 @@ class Enemy{
         // Calculate Speed
         
     }*/ 
-    //here is how I would do the enemy AI 
-    public void EnemyAI(){
-float targetX = player.playerX;
-  float dx = targetX - this.x;
-  this.x += dx * easing;
-  
-  float targetY = player.playerY;
-  float dy = targetY - this.y;
-  this.y += dy * this.easing;
-    }
      public void handleRender(){
-         image(this.sprite, this.x, this.y,308/3,475/3); 
+         image(this.sprite, this.x, this.y); 
      }
 }

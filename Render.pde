@@ -35,21 +35,38 @@ class Render{
        image(underworld, 0,0,width,height);
     }
     public void odyseussAnimation(){
+        if (player.name == "odyseuss"){
         if (key == 'a' || key == 'A'){
-            if (player.name == "odyseuss"){
                 player.targetPlayerSprite = odyseussLeft;
-            }
-            else{
-                player.targetPlayerSprite = pen;
-            }
         }
          if (key == 'd' || key == 'D'){
-            if (player.name == "odyseuss"){
                 player.targetPlayerSprite = odyseussRight;
-            }
+         }
+          player.sizeX = 71; 
+                 player.sizeY = 151; 
+                 player.placementX = 0; 
+                 player.placementY = 0; 
+        }
             else{
                 player.targetPlayerSprite = pen;
-            } 
+            }
+        
+        if (mousePressed && keyPressed == false){
+            if (player.name == "odyseuss"){
+                 if (key == 'a' || key == 'A'){
+                player.targetPlayerSprite =  odyseussFightAnimationL;
+                 }
+                 if (key == 'd' || key == 'D'){
+                player.targetPlayerSprite =  odyseussFightAnimationR;
+                 }
+                 player.sizeX = 171; 
+                 player.sizeY = 251; 
+                 player.placementX = -50; 
+                 player.placementY = -50; 
+            }
+            else{
+               // player.targetPlayerSprite = penFightAnimation;
+            }
         }
     }
 }

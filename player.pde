@@ -6,7 +6,10 @@ class Player{
     private int speed;
     private int playerX;
     private int playerY;
-
+private int sizeX; 
+private int sizeY; 
+private int placementX; 
+private int placementY; 
    
     public PImage targetPlayerSprite;
 
@@ -27,7 +30,7 @@ class Player{
         this.hp = 100; 
         this.attackValue = 5;
         this.protection = 100;
-        this.speed = 5;
+        this.speed = 10;
         this.targetPlayerSprite = targetPlayerSprite;
         this.playerX = width / 2;
         this.playerY = height / 2;
@@ -87,7 +90,7 @@ class Player{
         }
 
     public void handleRender(){
-        image(this.targetPlayerSprite, this.playerX, this.playerY); 
+        image(this.targetPlayerSprite, this.playerX + this.placementX, this.playerY + this.placementY,this.sizeX,this.sizeY); 
         // image(odyseuss, this.playerX, this.playerY); 
 
     }
