@@ -17,7 +17,8 @@ boolean hitTime = true;
 PImage odyseussLeft;
 PImage odyseussRight;
 PImage odyseuss; 
-PImage pen; 
+PImage penLeft; 
+PImage penRight;  
 PImage underworld; 
 PImage enemy; 
 PImage odyseussFightAnimationL; 
@@ -30,7 +31,8 @@ PImage enemyDamaged;
 void loadResources(){
     odyseussLeft = loadImage("./resources/img/playerLeft.png");
     odyseussRight = loadImage("./resources/img/playerRight.png");
-    pen = loadImage("./resources/img/download.jpeg");
+    penLeft = loadImage("./resources/img/penelopeLeft.png");
+    penRight = loadImage("./resources/img/penelopeRight.png");
     underworld = loadImage("./resources/img/Underworld.jpeg"); 
     enemy = loadImage("./resources/img/enemy.png"); 
     odyseussFightAnimationL = loadImage("./resources/img/OdysseusSwordLeft.png"); 
@@ -140,6 +142,7 @@ void restart(){
 if (player.isVisible == false){
     if (key == 'r' || key == 'R'){
 enmy.health = enmy.originalHealth; 
+enmy.healthMemory = enmy.originalHealth; 
 enmy.x = 0; 
 enmy.y = 0; 
 player.hp = player.originalHealth; 
