@@ -7,7 +7,6 @@ boolean left = false;
 boolean right = false;
 boolean playerSelect = false;
 boolean selectReleased = false; 
-boolean upgrade = false; 
 int slider = 1; 
 int currency = 0; 
 Render render = new Render(); 
@@ -48,7 +47,7 @@ void setup(){
     // loadimage() will all be here
     loadResources();
     odyseuss = odyseussLeft; 
-    player = new Player("odyseuss", 100, 20, 10000, 10, width/2, height/2, odyseuss);
+    player = new Player("odyseuss", 100, 20, 0, 10, width/2, height/2, odyseuss);
     player.originalHealth = player.hp; 
     enmy = new Enemy(100, 5, 4, enemy, 0, 0);
     enmy.originalHealth = enmy.health; 
@@ -65,16 +64,15 @@ void draw(){
     if (inGame){
         render.inGame();
         if (player.isVisible){
-            playerFunctions(); 
+        playerFunctions(); 
         }
-        if (enmyList.size() > 0){
-            enemyFunctions(); 
-        }
-    }
+        if (enmy.isVisible)
+        enemyFunctions(); 
         restart(); 
         walls(); 
         display(); //put functions above Game Over and display
         gameOver();
+    }
 }
 void keyPressed(){
     if (key == 'm'){
@@ -140,26 +138,22 @@ void playerFunctions(){
     player.playerAttack(); 
 }
 void initializeEnemy(){
-    Enemy tempEnmy = new Enemy(100, 5, 4, enemy, int(random(1, width)), random(1, height));
-    enmyList.add(tempEnmy);
-    enmyList.add(tempEnmy);
-    enmyList.add(tempEnmy);
+    Enemy tempEnmy = new Enemy(100, 5, 4, enemy, 0, 0);
     enmyList.add(tempEnmy);
 }
 void enemyFunctions(){
-    // enmy.handleRender(); 
-    // enmy.enemyAI(); 
-    // enmy.enemyFight(); 
-    // enmy.enemyRespawn(); 
+    enmy.handleRender(); 
+    enmy.enemyAI(); 
+    enmy.enemyFight(); 
+    enmy.enemyRespawn(); 
 
     // Multi-Enemy Here
     for (int i = 0; i < enmyList.size(); i++){
         // If this enemy has already died then delete this item and create new ones
         if (enmyList.get(i).health <= 0){
-            enmyList.remove(i);
-            for (int j = 0; j < 1; j++){
-                Enemy tempEnmy = new Enemy(100, 5, 4, enemy, int(random(1, width)), random(1, height));
-                enmyList.add(tempEnmy);
+            enmyList.remove(i); 
+            for (int j = 0; j < 2; j++){
+                initializeEnemy();
             }
         }
         enmyList.get(i).handleRender();

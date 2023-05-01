@@ -1,5 +1,5 @@
 class Render {
-  public void menu() {
+  public void menu() { // menu section 
     //diplay
     image(underworld, 0, 0, width, height);
     fill(0);
@@ -20,6 +20,7 @@ class Render {
     text("Players", width/7.5+25, 550, 250, 100);
     //functions
     if (mousePressed && mouseX < width/1.5+250 && mouseX > width/1.5 && mouseY < 550+100 && mouseY > 550 && playerSelect == false) {//upgrade
+    upgrade = true; 
     }
     if (mousePressed && mouseX < width/2.5+250 && mouseX > width/2.5 && mouseY < 550+100 && mouseY > 550 && playerSelect == false) {//Start
       resume = true;
@@ -31,8 +32,11 @@ class Render {
     if (playerSelect) {
       this.playerSelection();
     }
+    if (upgrade) {
+      upgrades(); 
+    }
   }
-  public void playerSelection() {
+  public void playerSelection() {// player section 
     // display
     image(underworld, 0, 0, width, height);
     fill(0);
@@ -63,22 +67,46 @@ class Render {
       fill(0);
       textSize(20);
       text("Odysuess has a son named Telemachus and a wife named Penelope. He is an enemy of Poseidon.", width/2-100, 425, 300, 1000);
+    player.name = "odyseuss";
     }
     if (mousePressed == false) {
       selectReleased = true;
     }
-    if (slider == 1) {
-      player.name = "odyseuss";
-    }
     if (slider == 2) {
+        image(penLeft, width/2-71, 100, 71*2, 151*2);
+      fill(0);
+      textSize(20);
+      text("Penelope is Odysuess's Wife. She has a son named Telemachus.", width/2-100, 425, 300, 1000);
       player.name = "pen";
     }
+    if (slider > 2){
+        slider = 1; 
+    }
+    if (slider < 1){
+        slider = 2; 
+    }
+  }
+  public void upgrades(){ // upgrade section 
+ image(underworld, 0, 0, width, height); 
+ fill(0); 
+ rect(585,405,50,50); 
+  rect(585,525,50,50); 
+  rect(585,525+120,50,50); 
+  fill(100); 
+text("Damage",510,380);
+  text("Protection",480,500); 
+  text("Health",520,500+120); 
+  textSize(80); 
+  fill(255); 
+  text("+",590,455); 
+  text("+",590,575); 
+  text("+",590,575+120); 
   }
   public void inGame() {
     image(underworld, 0, 0, width, height);
   }
-  public void playerAnimation() {
-    if (player.name == "odyseuss") {
+  public void playerAnimation() { // normal player animation 
+    if (player.name == "odyseuss") {// odysseus animation
       if (key == 'a' || key == 'A') {
         player.targetPlayerSprite = odyseussLeft;
         odyseussPosMemory = odyseussLeft;
@@ -94,7 +122,7 @@ class Render {
       player.sizeY = 151;
       player.placementX = 0;
       player.placementY = 0;
-    } else if (player.name == "pen") {
+    } else if (player.name == "pen") {// penelopie animaton 
       if (key == 'a' || key == 'A') {
         player.targetPlayerSprite = penLeft;
         odyseussPosMemory = penLeft;
@@ -111,10 +139,11 @@ class Render {
       player.placementX = 0;
       player.placementY = 0;
     }
+    //define new charecters here using "else if" command 
   
 
-  if (mousePressed && keyPressed == false && hitTime) {
-    if (player.name == "odyseuss") {
+  if (mousePressed && keyPressed == false && hitTime) {// fighting player animation 
+    if (player.name == "odyseuss") { // odysseus animation
       if (key == 'a' || key == 'A') {
         player.targetPlayerSprite =  odyseussFightAnimationL;
         fightAnimationMemory = odyseussFightAnimationL;
@@ -130,7 +159,7 @@ class Render {
       player.sizeY = 251;
       player.placementX = -50;
       player.placementY = -50;
-    } else if (player.name == "pen") {
+    } else if (player.name == "pen") { // penelopie animaton 
       if (key == 'a' || key == 'A') {
         player.targetPlayerSprite =  odyseussFightAnimationL;
         fightAnimationMemory = odyseussFightAnimationL;
@@ -147,6 +176,7 @@ class Render {
       player.placementX = -50;
       player.placementY = -50;
     }
+    //define new charecters here using "else if" command 
     hitTime = false;
   }
   if (mousePressed == false) {

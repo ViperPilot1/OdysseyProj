@@ -6,12 +6,12 @@ class Player{
     private int speed;
     private int playerX;
     private int playerY;
-private int sizeX; 
-private int sizeY; 
-private int placementX; 
-private int placementY; 
-public int originalHealth; 
-public boolean isVisible = true; 
+    private int sizeX; 
+    private int sizeY; 
+    private int placementX; 
+    private int placementY; 
+    public int originalHealth; 
+    public boolean isVisible = true; 
    
     public PImage targetPlayerSprite;
 
@@ -96,14 +96,16 @@ public boolean isVisible = true;
 
     }
     public void playerAttack(){
-         if (mousePressed && keyPressed == false){
-         if (dist(this.playerX,0,enmy.x,0)<player.sizeX && dist(this.playerY,0,enmy.y,0)<player.sizeY){
-            enmy.health -= this.attackValue; 
-             enmy.sprite = enemyDamaged; 
-        }
-         }
-         else{
-            enmy.sprite = enemy; 
+        for (int i = 0; i < enmyList.size(); i++){
+            if (mousePressed && keyPressed == false){
+                if (dist(this.playerX,0,enmyList.get(i).x,0)<player.sizeX && dist(this.playerY,0,enmyList.get(i).y,0)<player.sizeY){
+                    enmyList.get(i).health -= this.attackValue; 
+                    enmyList.get(i).sprite = enemyDamaged; 
+                }
+            }
+            else{
+                enmyList.get(i).sprite = enemy; 
+            }
         }
     }
 }

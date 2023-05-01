@@ -51,7 +51,12 @@ float targetX = player.playerX;
 
      public void enemyFight(){
         if (dist(this.x,0,player.playerX,0)<71 && dist(this.y,0,player.playerY,0)<151){
+           if (player.protection > 1){
+            player.protection -= this.attack; 
+           }
+            if (player.protection < 1){
             player.hp -= this.attack; 
+        }
         }
         if (this.health < 1){
             this.isVisible = false; 
@@ -59,6 +64,7 @@ float targetX = player.playerX;
      }
      public void enemyRespawn(){
         if (this.isVisible == false){
+            currency += 5; 
             this.health = healthMemory + 50; 
             this.x = 0; 
             this.y = 0; 
