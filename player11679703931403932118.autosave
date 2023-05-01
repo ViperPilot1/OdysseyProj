@@ -96,14 +96,18 @@ public boolean isVisible = true;
 
     }
     public void playerAttack(){
-         if (mousePressed && keyPressed == false){
-         if (dist(this.playerX,0,enmy.x,0)<player.sizeX && dist(this.playerY,0,enmy.y,0)<player.sizeY){
+         if (mousePressed){
+         if (dist(this.playerX,0,enmy.x,0)<player.sizeX && dist(this.playerY,0,enmy.y,0)<player.sizeY && keyPressed == false){
             enmy.health -= this.attackValue; 
              enmy.sprite = enemyDamaged; 
         }
-         }
-         else{
+        else{
             enmy.sprite = enemy; 
         }
+        if (dist(this.playerX,0,enmy.x,0)>player.sizeX && dist(this.playerY,0,enmy.y,0)>player.sizeY){
+             enmy.sprite = enemy; 
+             this.hp += 1; 
+        }
+         }
     }
 }
