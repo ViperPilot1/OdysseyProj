@@ -10,6 +10,9 @@ boolean selectReleased = false;
 boolean upgrade = false; 
 int slider = 1; 
 int currency = 0; 
+int damCost = 7; 
+int proCost = 5; 
+int hpCost = 10; 
 Render render = new Render(); 
 Player player;
 Enemy enmy; 
@@ -48,7 +51,7 @@ void setup(){
     // loadimage() will all be here
     loadResources();
     odyseuss = odyseussLeft; 
-    player = new Player("odyseuss", 100, 20, 10000, 10, width/2, height/2, odyseuss);
+    player = new Player("odyseuss", 100, 20, 50, 10, width/2, height/2, odyseuss);
     player.originalHealth = player.hp; 
     enmy = new Enemy(100, 5, 4, enemy, 0, 0);
     enmy.originalHealth = enmy.health; 
@@ -73,7 +76,9 @@ void draw(){
     }
         restart(); 
         walls(); 
+        if (inGame){
         display(); //put functions above Game Over and display
+        }
         gameOver();
 }
 void keyPressed(){
@@ -142,9 +147,15 @@ void playerFunctions(){
 void initializeEnemy(){
     Enemy tempEnmy = new Enemy(100, 5, 4, enemy, int(random(1, width)), random(1, height));
     enmyList.add(tempEnmy);
+    if (enmy.deathCount > 20){
     enmyList.add(tempEnmy);
+    }
+    if (enmy.deathCount > 35){
     enmyList.add(tempEnmy);
+    }
+    if (enmy.deathCount > 50){
     enmyList.add(tempEnmy);
+    }
 }
 void enemyFunctions(){
     // enmy.handleRender(); 
@@ -156,7 +167,12 @@ void enemyFunctions(){
     for (int i = 0; i < enmyList.size(); i++){
         // If this enemy has already died then delete this item and create new ones
         if (enmyList.get(i).health <= 0){
-            enmyList.remove(i);
+            enmyList.remove(i);//respawn function will not work so this will temp fix it 
+            currency += enmy.loot; 
+            enmy.loot += 5; 
+            enmy.health = enmy.healthMemory + 50; 
+            enmy.healthMemory = enmy.health; 
+            enmy.deathCount += 1; 
             for (int j = 0; j < 1; j++){
                 Enemy tempEnmy = new Enemy(100, 5, 4, enemy, int(random(1, width)), random(1, height));
                 enmyList.add(tempEnmy);
@@ -175,6 +191,7 @@ void restart(){
         enmy.healthMemory = enmy.originalHealth; 
         enmy.x = 0; 
         enmy.y = 0; 
+        enmy.deathCount = 0; 
         player.hp = player.originalHealth; 
         player.playerX = width/2; 
         player.playerY = height/2; 

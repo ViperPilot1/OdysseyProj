@@ -11,6 +11,7 @@ class Player{
     private int placementX; 
     private int placementY; 
     public int originalHealth; 
+    public int time = 0; 
     public boolean isVisible = true; 
    
     public PImage targetPlayerSprite;
@@ -93,9 +94,13 @@ class Player{
 
     public void handleRender(){
         image(this.targetPlayerSprite, this.playerX + this.placementX, this.playerY + this.placementY,this.sizeX,this.sizeY); 
-
     }
     public void playerAttack(){
+        this.time += 1; 
+        if (this.time > 10 && player.hp < player.originalHealth){
+        player.hp += 1; 
+        this.time = 0; 
+        }
         for (int i = 0; i < enmyList.size(); i++){
             if (mousePressed && keyPressed == false){
                 if (dist(this.playerX,0,enmyList.get(i).x,0)<player.sizeX && dist(this.playerY,0,enmyList.get(i).y,0)<player.sizeY){

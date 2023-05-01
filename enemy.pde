@@ -3,6 +3,8 @@ class Enemy{
     private int healthMemory;
     private int originalHealth;
     private int attack;
+    private int loot = 5; 
+    public int deathCount = 0; 
     private float speed;
     private float easing; 
     public float x;
@@ -64,11 +66,13 @@ float targetX = player.playerX;
      }
      public void enemyRespawn(){
         if (this.isVisible == false){
-            currency += 5; 
-            this.health = healthMemory + 50; 
+            currency += this.loot; 
+            this.loot += 5; 
+            this.health = this.healthMemory + 50; 
             this.x = 0; 
             this.y = 0; 
             this.enemyMemory(); 
+            this.deathCount += 1; 
             isVisible = true; 
         }
      }
